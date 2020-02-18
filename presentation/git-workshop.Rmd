@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "TITLE"
 subtitle: "I'm a Data Scientist, Git me out of here!"
 params:
   date: "20 February, 2020"
