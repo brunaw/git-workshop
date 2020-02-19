@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html>
   <head>
     <title>git-workshop.utf8</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="author" content="Bruna Wundervald &amp; Jo Niec" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/my-theme.css" type="text/css" />
@@ -29,7 +29,9 @@ class: title-slide, center, bottom
 
 class: inverse, center, middle
 
-Find this presentation on our [GitHub](https://github.com/rladies/meetup-presentations_dublin)
+Find this presentation at: brunaw.com/slides/git-workshop.html
+
+and the source code in our [GitHub](https://github.com/rladies/meetup-presentations_dublin)
 
 ---
 
@@ -157,7 +159,7 @@ class: inverse, middle
 
 # 2. Creating and Cloning a Repository
 
-  - To clone a repository, first copy your repository URL, 
+  - To clone a repository, first, copy your repository URL, 
   open a terminal window in the folder where you want to clone and 
   type:
   
@@ -170,7 +172,7 @@ class: inverse, middle
   - You'll note a new folder with the name of your repository appeared.
   You can start editing it! 
   
-  - You can actually clone any repository you want, not only yours 
+  - You can clone any repository you want, not only yours 
     - You might not have permission to push to other people's
     repository 
     - Explore GitHub to find interesting repositories! 
@@ -227,7 +229,7 @@ done in a terminal open at your git repository:
 # 4. Pushing to Your Repositories
 
 
-  - Step 2. Add your changes with `git add changed_file.extension`
+  - Step 2. Add your changes with `git add 'changed_file.extension'`
     - You can use `git add .` to add all changes at the same time
     - If you run `git status` you'll see that the added files turned 
     &lt;font color="green"&gt;green&lt;/font&gt;
@@ -261,7 +263,7 @@ when needed.
 to see the changes on your GitHub profile now. 
 
 &gt; Note: it's a good habit to try to use useful commit [messages](https://chris.beams.io/posts/git-commit/), which
-will help you remember what you were doing when you commited the 
+will help you remember what you were doing when you committed the 
 changes
 
 ---
@@ -337,10 +339,10 @@ to discontinuated `R` packages. The steps to do that are:
 # 7. Using Branches
 
 
-  - Step 1. Create a new branch with `git checkout -b branch_name`. Now you're working on this branch (use `git branch` to see what branch you're on)
+  - Step 1. Create a new branch with `git checkout -b &lt;branch_name&gt;`. Now you're working on this branch (use `git branch` to see what branch you're on)
     
   - Step 2. Propose your changes and commit as usual except the push step: 
-  now you need to use `git push branch_name` to identify where 
+  now you need to use `git push origin &lt;branch_name&gt;` to identify where 
   the changes are coming from
   
 
@@ -352,7 +354,7 @@ to discontinuated `R` packages. The steps to do that are:
   
 **At this point, the changes made using the branch are not
 available in the master folder.  You can `merge` ("accept") the
-branch with `git merge branch_name`**
+branch with `git merge &lt;branch_name&gt;`**
   
   - This depends on the branch having no conflicts with the
   master branch. If conflicts exist, you might need to deal
@@ -363,7 +365,7 @@ It is possible to check the differences between branches with
 
 ---
 
-# Pro tip : You can just use a Git client
+# Pro tip: You can just use a Git client
 
 Git can be daunting and the learning curve is steep. 
 Just use a Git client. It'll help you grasp the concepts of version control faster.
@@ -377,29 +379,29 @@ Just use a Git client. It'll help you grasp the concepts of version control fast
 
   - Git and GitHub can be very useful tools for many tasks
   - What we learned today is enough for:
-    - Creating and pushing to your own repositories
-    - Creating in branches (which can be used by groups)
+    - Creating and pushing to your repositories
+    - Creating branches (which can be used by groups)
     - Contributing to other repositories
   
-  but they have many more features that you'll learn in practice :)  
+  but Git and GitHub have many more features that you'll learn when practicing it :)
     
-  
+---
+
+# Resources
+
+- [Happy Git with R](https://happygitwithr.com/) - Jenny Bryan, Jim Hester
+- [Oh shit git](https://ohshitgit.com/) / [Dang it git](https://dangitgit.com/)
+- HubSpot's [Intro to Git and GitHub for Beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
+
 
 
 ---
 
 
-class: bottom, center, inverse
+class: middle, center, inverse
 
-&lt;font size="30"&gt;Thanks! &lt;/font&gt;
-
-&lt;img src= "https://s3.amazonaws.com/kleebtronics-media/img/icons/github-white.png", width="50", height="50",  align="middle"&gt; 
-
-&lt;b&gt;
-
- &lt;color="FFFFFF"&gt;  https://github.com/brunaw &lt;/color&gt;
+&lt;font size="45"&gt; Thank you! &lt;/font&gt;
     </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="https://platform.twitter.com/widgets.js"></script>
 <script>var slideshow = remark.create({
@@ -412,74 +414,16 @@ class: bottom, center, inverse
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
-    }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+})();</script>
 
 <script>
 (function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
-
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
+  var i, text, code, codes = document.getElementsByTagName('code');
   for (i = 0; i < codes.length;) {
     code = codes[i];
     if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
@@ -493,8 +437,7 @@ slideshow._releaseMath = function(el) {
     }
     i++;
   }
-};
-slideshow._releaseMath(document);
+})();
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

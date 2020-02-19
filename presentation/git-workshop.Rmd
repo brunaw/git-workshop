@@ -42,7 +42,9 @@ class: title-slide, center, bottom
 
 class: inverse, center, middle
 
-Find this presentation on our [GitHub](https://github.com/rladies/meetup-presentations_dublin)
+Find this presentation at: brunaw.com/slides/git-workshop.html
+
+and the source code in our [GitHub](https://github.com/rladies/meetup-presentations_dublin)
 
 ---
 
@@ -184,7 +186,7 @@ knitr::include_graphics("https://github.com/brunaw/git-workshop/blob/master/pres
 
 # 2. Creating and Cloning a Repository
 
-  - To clone a repository, first copy your repository URL, 
+  - To clone a repository, first, copy your repository URL, 
   open a terminal window in the folder where you want to clone and 
   type:
   
@@ -197,7 +199,7 @@ knitr::include_graphics("https://github.com/brunaw/git-workshop/blob/master/pres
   - You'll note a new folder with the name of your repository appeared.
   You can start editing it! 
   
-  - You can actually clone any repository you want, not only yours 
+  - You can clone any repository you want, not only yours 
     - You might not have permission to push to other people's
     repository 
     - Explore GitHub to find interesting repositories! 
@@ -292,7 +294,7 @@ when needed.
 to see the changes on your GitHub profile now. 
 
 > Note: it's a good habit to try to use useful commit [messages](https://chris.beams.io/posts/git-commit/), which
-will help you remember what you were doing when you commited the 
+will help you remember what you were doing when you committed the 
 changes
 
 ---
@@ -404,7 +406,7 @@ It is possible to check the differences between branches with
 
 ---
 
-# Pro tip : You can just use a Git client
+# Pro tip: You can just use a Git client
 
 Git can be daunting and the learning curve is steep. 
 Just use a Git client. It'll help you grasp the concepts of version control faster.
@@ -418,11 +420,11 @@ Just use a Git client. It'll help you grasp the concepts of version control fast
 
   - Git and GitHub can be very useful tools for many tasks
   - What we learned today is enough for:
-    - Creating and pushing to your own repositories
-    - Creating in branches (which can be used by groups)
+    - Creating and pushing to your repositories
+    - Creating branches (which can be used by groups)
     - Contributing to other repositories
   
-  but they have many more features that you'll learn in practice :)
+  but Git and GitHub have many more features that you'll learn when practicing it :)
     
 ---
 
@@ -430,23 +432,14 @@ Just use a Git client. It'll help you grasp the concepts of version control fast
 
 - [Happy Git with R](https://happygitwithr.com/) - Jenny Bryan, Jim Hester
 - [Oh shit git](https://ohshitgit.com/) / [Dang it git](https://dangitgit.com/)
-- Bruna’s git & github intro [seminar](http://brunaw.com/slides/seminars/git/git.html)
 - HubSpot's [Intro to Git and GitHub for Beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
-
-
 
 
 
 ---
 
 
-class: bottom, center, inverse
+class: middle, center, inverse
 
-<font size="30">Thanks! </font>
-
-<img src= "https://s3.amazonaws.com/kleebtronics-media/img/icons/github-white.png", width="50", height="50",  align="middle"> 
-
-<b>
-
- <color="FFFFFF">  https://github.com/brunaw </color>
+<font size="45"> Thank you! </font>
 
