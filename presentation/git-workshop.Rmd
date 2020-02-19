@@ -422,9 +422,19 @@ Just use a Git client. It'll help you grasp the concepts of version control fast
     - Creating in branches (which can be used by groups)
     - Contributing to other repositories
   
-  but they have many more features that you'll learn in practice :)  
+  but they have many more features that you'll learn in practice :)
     
-  
+---
+
+# Resources
+
+- [Happy Git with R](https://happygitwithr.com/) - Jenny Bryan, Jim Hester
+- [Oh shit git](https://ohshitgit.com/) / [Dang it git](https://dangitgit.com/)
+- Bruna’s git & github intro [seminar](http://brunaw.com/slides/seminars/git/git.html)
+- HubSpot's [Intro to Git and GitHub for Beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
+
+
+
 
 
 ---
