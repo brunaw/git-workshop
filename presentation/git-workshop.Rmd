@@ -1,5 +1,5 @@
 ---
-title: "TITLE"
+title: ""
 subtitle: "I'm a Data Scientist, Git me out of here!"
 params:
   date: "20 February, 2020"
@@ -58,6 +58,8 @@ knitr::include_graphics("https://avatars3.githubusercontent.com/u/18500161?s=460
   - Ph.D. Candidate in Statistics at Maynooth University
   - GitHub: [@brunaw](https://github.com/brunaw)
   - Twitter: [@bwundervald](https://twitter.com/bwundervald)
+  
+  
 ]
 
 
@@ -72,8 +74,6 @@ knitr::include_graphics("https://avatars1.githubusercontent.com/u/39118415?s=400
   -  Product Analyst at Intercom
   - GitHub: [@jo-niec](https://github.com/jo-niec)
   - Twitter: [@joannaniec](https://twitter.com/joannaniec)
-  
-
   
 
 ]
@@ -146,8 +146,8 @@ class: inverse, middle
 
 0. Creating your GitHub account and installing Git 
 1. Creating and Cloning a Repository ('repo')
-2. Pushing to Your Repositories
-3. Connecting your local Git to GitHub via an SSH Key
+2. Connecting your local Git to GitHub via an SSH Key
+3. Pushing to Your Repositories
 4. Adding a `.gitignore` File
 5. Contributing to Existing Repositories
 6. Using Branches
@@ -202,9 +202,40 @@ knitr::include_graphics("https://github.com/brunaw/git-workshop/blob/master/pres
     repository 
     - Explore GitHub to find interesting repositories! 
 
+
 ---
 
-# 3. Pushing to Your Repositories
+# Pro-tip: You can connect your local git to your GitHub account with an SSH key.
+
+> An SSH key is an access credential in the SSH protocol. Its function is similar to that of user names and passwords, but the keys are primarily used for automated processes and for implementing single sign-on by system administrators and power users.
+
+You don't need to use SSH, but it provides an extra security layer.
+
+There are other methods of [authentication](https://happygitwithr.com/credential-caching.html#credential-caching).
+
+
+---
+
+# 3. Connecting your local Git to GitHub via an SSH Key
+
+  - Step 1. Open GitHub and go to `Settings` -> `SSH and GPG keys` -> `New SSH key` 
+  
+  - Step 2. Open terminal and run: 
+  `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"` (with your email, of course)
+  
+  - Step 3. Press enter until the end of the process
+  
+  - Step 4. On terminal, run `eval "$(ssh-agent -s)"`
+  and `ssh-add ~/.ssh/id_rsa`. You have **generated the key**. Use `ssh-add -K ...` to save it to Keychain.
+
+  - Step 4. Copy and paste it to GH: open the `id_rsa.pub` file created in `~/.ssh` and copy it
+  to GitHub. Alternatively type: `pbcopy < ~/.ssh/id_rsa.pub`
+  
+[More details here!](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+
+---
+
+# 4. Pushing to Your Repositories
 
 To push your changes to git, there are basically four steps, all
 done in a terminal open at your git repository:
@@ -220,13 +251,12 @@ knitr::include_graphics("https://github.com/brunaw/git-workshop/blob/master/pres
 ```
 
 
-
 ---
 
-# 3. Pushing to Your Repositories
+# 4. Pushing to Your Repositories
 
 
-  - Step 2. Add your changes with `git add changed_file.extension`
+  - Step 2. Add your changes with `git add 'changed_file.extension'`
     - You can use `git add .` to add all changes at the same time
     - If you run `git status` you'll see that the added files turned 
     <font color="green">green</font>
@@ -250,9 +280,10 @@ There is way around it, through git itself, with [Git Large File Storage](https:
 also save such files in other places (like drives) and read it from there
 when needed. 
 
+
 ---
 
-# 3. Pushing to Your Repositories
+# 4. Pushing to Your Repositories
 
     
   - Step 3. Commit your changes with `git commit -m "my commit message"`
@@ -270,48 +301,6 @@ Not this:
 ```{r, out.width="45%"}
 knitr::include_graphics("https://github.com/brunaw/git-workshop/blob/master/presentation/img/commits.png?raw=true")
 ```
-
----
-
-# Pro-tip #1 : You don't need to type GH username/password on every push
-
-You can connect your local git to your GitHub account with an SSH key.
-
-> An SSH key is an access credential in the SSH protocol. Its function is similar to that of user names and passwords, but the keys are primarily used for automated processes and for implementing single sign-on by system administrators and power users.
-
-There are other methods of [authentication](https://happygitwithr.com/credential-caching.html#credential-caching).
-
----
-
-# 4. Connecting your local Git to GitHub via an SSH Key
-
-  - Step 1. Open GitHub and go to `Settings` -> `SSH and GPG keys` -> `New SSH key` 
-  
-  - Step 2. Open terminal and run: 
-  `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"` (with your email, of course)
-  
-  - Step 3. Press enter until the end of the process
-  
-  - Step 4. On terminal, run `eval "$(ssh-agent -s)"`
-  and `ssh-add ~/.ssh/id_rsa`. You have **generated the key**. Use `ssh-add -K ...` to save it to Keychain.
-
-  - Step 4. Copy and paste it to GH: open the `id_rsa.pub` file created in `~/.ssh` and copy it
-  to GitHub. Alternatively type: `pbcopy < ~/.ssh/id_rsa.pub`
-  
-[More details here!](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-
-
----
-
-class: middle, center
-
-# I don't want all files to go to GitHub. Can I ignore some of them?
-
-
-```{r}
-knitr::include_graphics("https://media2.giphy.com/media/3o7buirYcmV5nSwIRW/giphy.gif?cid=790b761109306fddac1ab85bb6e49057902f4e02a1c0e076&rid=giphy.gif")
-```
-
 
 ---
 
@@ -341,14 +330,6 @@ files listed there
 
 ---
 
-# Pro tip #2 : You can just use a Git client
-
-Git can be daunting and the learning curve is steep. 
-Just use a Git client. It'll help you grasp the concepts of version control faster.
-
-> [SourceTree](https://confluence.atlassian.com/get-started-with-sourcetree/install-sourcetree-847359094.html) gets a lot of praises among Data Engineers on my team.
-
----
 
 # 6. Contributing to Existing Repositories
 
@@ -364,11 +345,9 @@ knitr::include_graphics("https://github-images.s3.amazonaws.com/help/bootcamp/Bo
 ```
 
 
-  - Step 2. Clone it (from your github account, e.g. `github.com/your_user/forked_repository`), make the changes 
-  and push it. 
+  - Step 2. Clone it (from your github account, e.g. `github.com/your_user/forked_repository`), set upstream to be able to propose changes `git remote add upstream <repo_url>`. 
   
-  - Step 3. Make a `pull request` into the original repository
-  (ask for your changes to be added by the owner of the repository). 
+  - Step 3. Commit changes and create a `pull request` into the original repository (ask for your changes to be added by the owner of the repository). 
 
 **Some repositories have their own contributing guide!**
 
@@ -399,11 +378,10 @@ knitr::include_graphics("https://cdn-images-1.medium.com/max/1600/1*iB8lNrITmLvK
 # 7. Using Branches
 
 
-  - Step 1. First `git checkout master` and `git pull`.
-  - Step 2. Create a new branch with `git checkout -b branch_name`. Now you're working on this branch (use `git branch` to see what branch you're on)
+  - Step 1. Create a new branch with `git checkout -b <branch_name>`. Now you're working on this branch (use `git branch` to see what branch you're on)
     
-  - Step 3. Add your changes and commit as usual except the push step: 
-  now you need to use `git push branch_name` to identify where 
+  - Step 2. Propose your changes and commit as usual except the push step: 
+  now you need to use `git push origin <branch_name>` to identify where 
   the changes are coming from
   
 
@@ -415,7 +393,7 @@ knitr::include_graphics("https://cdn-images-1.medium.com/max/1600/1*iB8lNrITmLvK
   
 **At this point, the changes made using the branch are not
 available in the master folder.  You can `merge` ("accept") the
-branch with `git merge branch_name`**
+branch with `git merge <branch_name>`**
   
   - This depends on the branch having no conflicts with the
   master branch. If conflicts exist, you might need to deal
@@ -423,7 +401,18 @@ branch with `git merge branch_name`**
   
 It is possible to check the differences between branches with
 `git diff <origin branch> <destin branch>`
+
 ---
+
+# Pro tip : You can just use a Git client
+
+Git can be daunting and the learning curve is steep. 
+Just use a Git client. It'll help you grasp the concepts of version control faster.
+
+> [SourceTree](https://confluence.atlassian.com/get-started-with-sourcetree/install-sourcetree-847359094.html) gets a lot of praises among Data Engineers on Jo's team.
+
+---
+
 
 # 8. Final Remarks 
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="" xml:lang="">
   <head>
     <title>git-workshop.utf8</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="author" content="Bruna Wundervald &amp; Jo Niec" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/my-theme.css" type="text/css" />
@@ -43,6 +43,8 @@ Find this presentation on our [GitHub](https://github.com/rladies/meetup-present
   - Ph.D. Candidate in Statistics at Maynooth University
   - GitHub: [@brunaw](https://github.com/brunaw)
   - Twitter: [@bwundervald](https://twitter.com/bwundervald)
+  
+  
 ]
 
 
@@ -55,8 +57,6 @@ Find this presentation on our [GitHub](https://github.com/rladies/meetup-present
   -  Product Analyst at Intercom
   - GitHub: [@jo-niec](https://github.com/jo-niec)
   - Twitter: [@joannaniec](https://twitter.com/joannaniec)
-  
-
   
 
 ]
@@ -121,8 +121,8 @@ class: inverse, middle
 
 0. Creating your GitHub account and installing Git 
 1. Creating and Cloning a Repository ('repo')
-2. Pushing to Your Repositories
-3. Connecting your local Git to GitHub via an SSH Key
+2. Connecting your local Git to GitHub via an SSH Key
+3. Pushing to Your Repositories
 4. Adding a `.gitignore` File
 5. Contributing to Existing Repositories
 6. Using Branches
@@ -175,9 +175,40 @@ class: inverse, middle
     repository 
     - Explore GitHub to find interesting repositories! 
 
+
 ---
 
-# 3. Pushing to Your Repositories
+# Pro-tip: You can connect your local git to your GitHub account with an SSH key.
+
+&gt; An SSH key is an access credential in the SSH protocol. Its function is similar to that of user names and passwords, but the keys are primarily used for automated processes and for implementing single sign-on by system administrators and power users.
+
+You don't need to use SSH, but it provides an extra security layer.
+
+There are other methods of [authentication](https://happygitwithr.com/credential-caching.html#credential-caching).
+
+
+---
+
+# 3. Connecting your local Git to GitHub via an SSH Key
+
+  - Step 1. Open GitHub and go to `Settings` -&gt; `SSH and GPG keys` -&gt; `New SSH key` 
+  
+  - Step 2. Open terminal and run: 
+  `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"` (with your email, of course)
+  
+  - Step 3. Press enter until the end of the process
+  
+  - Step 4. On terminal, run `eval "$(ssh-agent -s)"`
+  and `ssh-add ~/.ssh/id_rsa`. You have **generated the key**. Use `ssh-add -K ...` to save it to Keychain.
+
+  - Step 4. Copy and paste it to GH: open the `id_rsa.pub` file created in `~/.ssh` and copy it
+  to GitHub. Alternatively type: `pbcopy &lt; ~/.ssh/id_rsa.pub`
+  
+[More details here!](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+
+---
+
+# 4. Pushing to Your Repositories
 
 To push your changes to git, there are basically four steps, all
 done in a terminal open at your git repository:
@@ -191,10 +222,9 @@ done in a terminal open at your git repository:
 &lt;img src="https://github.com/brunaw/git-workshop/blob/master/presentation/img/git-status.png?raw=true" width="40%" height="35%" style="display: block; margin: auto;" /&gt;
 
 
-
 ---
 
-# 3. Pushing to Your Repositories
+# 4. Pushing to Your Repositories
 
 
   - Step 2. Add your changes with `git add changed_file.extension`
@@ -219,9 +249,10 @@ There is way around it, through git itself, with [Git Large File Storage](https:
 also save such files in other places (like drives) and read it from there
 when needed. 
 
+
 ---
 
-# 3. Pushing to Your Repositories
+# 4. Pushing to Your Repositories
 
     
   - Step 3. Commit your changes with `git commit -m "my commit message"`
@@ -237,46 +268,6 @@ changes
 
 Not this:
 &lt;img src="https://github.com/brunaw/git-workshop/blob/master/presentation/img/commits.png?raw=true" width="45%" style="display: block; margin: auto;" /&gt;
-
----
-
-# Pro-tip #1 : You don't need to type GH username/password on every push
-
-You can connect your local git to your GitHub account with an SSH key.
-
-&gt; An SSH key is an access credential in the SSH protocol. Its function is similar to that of user names and passwords, but the keys are primarily used for automated processes and for implementing single sign-on by system administrators and power users.
-
-There are other methods of [authentication](https://happygitwithr.com/credential-caching.html#credential-caching).
-
----
-
-# 4. Connecting your local Git to GitHub via an SSH Key
-
-  - Step 1. Open GitHub and go to `Settings` -&gt; `SSH and GPG keys` -&gt; `New SSH key` 
-  
-  - Step 2. Open terminal and run: 
-  `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"` (with your email, of course)
-  
-  - Step 3. Press enter until the end of the process
-  
-  - Step 4. On terminal, run `eval "$(ssh-agent -s)"`
-  and `ssh-add ~/.ssh/id_rsa`. You have **generated the key**. Use `ssh-add -K ...` to save it to Keychain.
-
-  - Step 4. Copy and paste it to GH: open the `id_rsa.pub` file created in `~/.ssh` and copy it
-  to GitHub. Alternatively type: `pbcopy &lt; ~/.ssh/id_rsa.pub`
-  
-[More details here!](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-
-
----
-
-class: middle, center
-
-# I don't want all files to go to GitHub. Can I ignore some of them?
-
-
-&lt;img src="https://media2.giphy.com/media/3o7buirYcmV5nSwIRW/giphy.gif?cid=790b761109306fddac1ab85bb6e49057902f4e02a1c0e076&amp;rid=giphy.gif" style="display: block; margin: auto;" /&gt;
-
 
 ---
 
@@ -304,14 +295,6 @@ files listed there
 
 ---
 
-# Pro tip #2 : You can just use a Git client
-
-Git can be daunting and the learning curve is steep. 
-Just use a Git client. It'll help you grasp the concepts of version control faster.
-
-&gt; [SourceTree](https://confluence.atlassian.com/get-started-with-sourcetree/install-sourcetree-847359094.html) gets a lot of praises among Data Engineers on my team.
-
----
 
 # 6. Contributing to Existing Repositories
 
@@ -325,11 +308,9 @@ to discontinuated `R` packages. The steps to do that are:
 &lt;img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
 
 
-  - Step 2. Clone it (from your github account, e.g. `github.com/your_user/forked_repository`), make the changes 
-  and push it. 
+  - Step 2. Clone it (from your github account, e.g. `github.com/your_user/forked_repository`), set upstream to be able to propose changes `git remote add upstream &lt;repo_url&gt;`. 
   
-  - Step 3. Make a `pull request` into the original repository
-  (ask for your changes to be added by the owner of the repository). 
+  - Step 3. Commit changes and create a `pull request` into the original repository (ask for your changes to be added by the owner of the repository). 
 
 **Some repositories have their own contributing guide!**
 
@@ -356,10 +337,9 @@ to discontinuated `R` packages. The steps to do that are:
 # 7. Using Branches
 
 
-  - Step 1. First `git checkout master` and `git pull`.
-  - Step 2. Create a new branch with `git checkout -b branch_name`. Now you're working on this branch (use `git branch` to see what branch you're on)
+  - Step 1. Create a new branch with `git checkout -b branch_name`. Now you're working on this branch (use `git branch` to see what branch you're on)
     
-  - Step 3. Add your changes and commit as usual except the push step: 
+  - Step 2. Propose your changes and commit as usual except the push step: 
   now you need to use `git push branch_name` to identify where 
   the changes are coming from
   
@@ -380,7 +360,18 @@ branch with `git merge branch_name`**
   
 It is possible to check the differences between branches with
 `git diff &lt;origin branch&gt; &lt;destin branch&gt;`
+
 ---
+
+# Pro tip : You can just use a Git client
+
+Git can be daunting and the learning curve is steep. 
+Just use a Git client. It'll help you grasp the concepts of version control faster.
+
+&gt; [SourceTree](https://confluence.atlassian.com/get-started-with-sourcetree/install-sourcetree-847359094.html) gets a lot of praises among Data Engineers on Jo's team.
+
+---
+
 
 # 8. Final Remarks 
 
@@ -408,6 +399,7 @@ class: bottom, center, inverse
 
  &lt;color="FFFFFF"&gt;  https://github.com/brunaw &lt;/color&gt;
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="https://platform.twitter.com/widgets.js"></script>
 <script>var slideshow = remark.create({
@@ -420,16 +412,74 @@ class: bottom, center, inverse
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
-})();</script>
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
   for (i = 0; i < codes.length;) {
     code = codes[i];
     if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
@@ -443,7 +493,8 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     i++;
   }
-})();
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
